@@ -1,0 +1,36 @@
+<mat-card class="film-card">
+  <mat-card-header>
+    <div mat-card-avatar class="film-header-image"></div>
+    <mat-card-title #name>{{film.name}}</mat-card-title>
+    <mat-card-subtitle>{{film.year}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="film.imgUrl" alt="{{film.name}}">
+  <mat-card-content>
+    <p>
+      {{film.description | slice:0:120}}...
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button color="primary">
+      <i class="material-icons">
+        play_arrow
+      </i>
+    </button>
+    <button mat-icon-button color="primary">
+      <i class="material-icons">
+        menu
+      </i>
+    </button>
+    <button *ngIf="!film.isFavorite;else fab" mat-icon-button color="primary" (click)="startFilm(film)">
+      <i class="material-icons">star</i>
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<ng-template #fab>
+  <button mat-icon-button (click)="startFilm(film)" color="accent">
+    <i class="material-icons">
+      favorite
+    </i>
+  </button>
+</ng-template>

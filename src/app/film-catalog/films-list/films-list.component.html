@@ -1,0 +1,37 @@
+<mat-card class="menu-card">
+
+  <mat-toolbar class="menu-toolbar">
+    <mat-toolbar-row>
+      <span>В избранное добавлено: {{favoriteFilmsCount}} элементов</span> &nbsp;
+      <button mat-raised-button (click)="directUpdateChildren()">Один Дочерний компонент</button> &nbsp;
+      <button mat-raised-button (click)="directUpdateAllChildren()">Все Дочерние компоненты</button>
+      <button mat-raised-button (click)="count()">++</button>
+      <span class="example-spacer"></span>
+      <div>
+        <mat-form-field>
+          <mat-select placeholder="Сортировка" [(value)]="sortOption" (selectionChange)="sortFilmCards()">
+            <mat-option *ngFor="let option of sortOptions" [value]="option.value">
+              {{option.description}}
+            </mat-option>
+            <mat-option value="default">Default</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+</mat-card>
+
+<mat-grid-list cols="3" rowHeight="840px">
+  <mat-grid-tile colspan="1" *ngFor="let film of filmsData">
+    <app-film-item [film]="film" [counter]="counter" (star)="makeStar($event)"></app-film-item>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+<div class="main-container">
+  <div class="fixer-container">
+    <button mat-raised-button color="primary" [disabled]="true">Загрузить еще</button>
+  </div>
+</div>
+

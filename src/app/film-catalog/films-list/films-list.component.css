@@ -1,0 +1,30 @@
+.example-card {
+  max-width: 300px;
+}
+
+.menu-card {
+  padding: 0px;
+}
+
+.menu-toolbar {
+  background-color: white;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+mat-grid-list {
+  margin: 1rem 3rem 0;
+}
+.main-container {
+  float: left;
+  position: relative;
+  left: 50%;
+  padding-bottom: 50px;
+}
+.fixer-container {
+  float: left;
+  position: relative;
+  left: -50%;
+}
